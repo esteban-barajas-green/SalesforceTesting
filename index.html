@@ -25,10 +25,84 @@
 		outline: 1px solid #005290;
 	}
 </style>
+	
+	
+	
+	
+	
+<style type='text/css'>
+	.embeddedServiceHelpButton .helpButton .uiButton {
+		background-color: #005290;
+		font-family: "Arial", sans-serif;
+	}
+	.embeddedServiceHelpButton .helpButton .uiButton:focus {
+		outline: 1px solid #005290;
+	}
+</style>
+
+	
+	
+	
+<script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
+<script type='text/javascript'>
+	var initESW = function(gslbBaseURL) {
+		embedded_svc.settings.displayHelpButton = true; //Or false
+		embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
+
+		//embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
+		//embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
+
+		//embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
+		//embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
+
+		// Settings for Chat
+		//embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
+			// Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
+			// Returns a valid button ID.
+		//};
+		//embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
+		//embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
+		//embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
+
+		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+		embedded_svc.settings.entryFeature = 'LiveAgent';
+
+		embedded_svc.init(
+			'https://brady--americas.my.salesforce.com',
+			'https://americas-test-support-uat-hc.cs26.force.com/',
+			gslbBaseURL,
+			'00D21000000ABDj',
+			'Lightning_Tech_Support',
+			{
+				baseLiveAgentContentURL: 'https://c.la4-c1cs-phx.salesforceliveagent.com/content',
+				deploymentId: '5722100000001K8',
+				buttonId: '5732100000001Md',
+				baseLiveAgentURL: 'https://d.la4-c1cs-phx.salesforceliveagent.com/chat',
+				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04I210000008OOXEA2_17074e8f70d',
+				isOfflineSupportEnabled: false
+			}
+		);
+	};
+
+	if (!window.embedded_svc) {
+		var s = document.createElement('script');
+		s.setAttribute('src', 'https://brady--americas.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+		s.onload = function() {
+			initESW(null);
+		};
+		document.body.appendChild(s);
+	} else {
+		initESW('https://service.force.com');
+	}
+</script>	
+	
+	
+	
+	
 
 
     
-
+<!-- This config works
 <img id="liveagent_button_online_5732100000001MY" style="display: none; border: 0px none; cursor: pointer" onclick="liveagent.startChat('5732100000001MY')" src="https://americas-brady.cs26.force.com/docs/resource/1540401118000/LiveAgentChatOnBubble" /><img id="liveagent_button_offline_5732100000001MY" style="display: none; border: 0px none; " src="https://americas-brady.cs26.force.com/docs/resource/1540401118000/LiveAgentChatOffBubble" />
 <script type="text/javascript">
 if (!window._laq) { window._laq = []; }
@@ -36,104 +110,12 @@ window._laq.push(function(){liveagent.showWhenOnline('5732100000001MY', document
 liveagent.showWhenOffline('5732100000001MY', document.getElementById('liveagent_button_offline_5732100000001MY'));
 });</script>
 
-        
-
-    
-<!--    
-<img id="liveagent_button_online_5732100000001VI" style="display: none; border: 0px none; cursor: pointer" onclick="liveagent.startChat('5732100000001VI')" src="https://americas-brady.cs26.force.com/docs/resource/1540401118000/LiveAgentChatOnBubble" /><img id="liveagent_button_offline_5732100000001VI" style="display: none; border: 0px none; " src="https://americas-brady.cs26.force.com/docs/resource/1540401118000/LiveAgentChatOffBubble" />
-<script type="text/javascript">
-if (!window._laq) { window._laq = []; }
-window._laq.push(function(){liveagent.showWhenOnline('5732100000001VI', document.getElementById('liveagent_button_online_5732100000001VI'));
-liveagent.showWhenOffline('5732100000001VI', document.getElementById('liveagent_button_offline_5732100000001VI'));
-});</script>
--->
-
-
 
 <script type='text/javascript' src='https://c.la4-c1cs-phx.salesforceliveagent.com/content/g/js/48.0/deployment.js'></script>
 <script type='text/javascript'>
 liveagent.init('https://d.la4-c1cs-phx.salesforceliveagent.com/chat', '5722100000001K8', '00D21000000ABDj');
 </script>
-   
-
-    
-    
-   <!-- Below config works --> 
-    
-<!--
-<img id="liveagent_button_online_5733A0000005Qmy" style="display: none; border: 0px none; cursor: pointer" onclick="liveagent.startChat('5733A0000005Qmy')" src="https://americas-brady.cs26.force.com/docs/resource/1540401118000/LiveAgentChatOnBubble" /><img id="liveagent_button_offline_5733A0000005Qmy" style="display: none; border: 0px none; " src="https://americas-brady.cs26.force.com/docs/resource/1540401118000/LiveAgentChatOffBubble" />
-<script type="text/javascript">
-if (!window._laq) { window._laq = []; }
-window._laq.push(function(){liveagent.showWhenOnline('5733A0000005Qmy', document.getElementById('liveagent_button_online_5733A0000005Qmy'));
-liveagent.showWhenOffline('5733A0000005Qmy', document.getElementById('liveagent_button_offline_5733A0000005Qmy'));
-});</script>
-    
-    
-    
-    
-<script type='text/javascript' src='https://c.la4-c1cs-phx.salesforceliveagent.com/content/g/js/48.0/deployment.js'></script>
-<script type='text/javascript'>
-liveagent.init('https://d.la4-c1cs-phx.salesforceliveagent.com/chat', '5723A0000005Q8U', '00D21000000ABDj');
-</script>
-
--->    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-<!--
-<script type='text/javascript' src='https://c.la4-c1cs-phx.salesforceliveagent.com/content/g/js/48.0/deployment.js'></script>
-<script type='text/javascript'>
-liveagent.init('https://d.la4-c1cs-phx.salesforceliveagent.com/chat', '5722100000001K8', '00D21000000ABDj');
-</script>
 -->
-    
-    
-
-<!--
-<script type='text/javascript' src='https://c.la4-c1cs-phx.salesforceliveagent.com/content/g/js/48.0/deployment.js'></script>
-<script type='text/javascript'>
-liveagent.init('https://d.la4-c1cs-phx.salesforceliveagent.com/chat', '5723A0000005Q8U', '00D21000000ABDj');
-</script>
--->
-    
-<!--    
-<script type='text/javascript' src='https://c.la4-c1cs-phx.salesforceliveagent.com/content/g/js/48.0/deployment.js'></script>
-<script type='text/javascript'>
-liveagent.init('https://d.la4-c1cs-phx.salesforceliveagent.com/chat', '5722100000001K8', '00D21000000ABDj');
-</script>    
--->   
     
 </body>
 </html>
