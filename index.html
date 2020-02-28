@@ -34,6 +34,20 @@
 		embedded_svc.settings.displayHelpButton = true; //Or false
 		embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
 		
+		embedded_svc.settings.extraPrechatFormDetails = [{
+  "label": "test2",
+  "transcriptFields":[ "Visitor_First_Name__c" ],			
+  "displayToAgent": true
+}, {
+  "label": "Last Name2",
+  "value": "Doe",
+  "displayToAgent": true
+}, {
+  "label": "Email3",
+  "value": "john.doe@salesforce.com",
+  "displayToAgent": true
+}];
+		
 		
 
 		//embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
