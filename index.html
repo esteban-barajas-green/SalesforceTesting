@@ -14,6 +14,8 @@
 
 <body>
     <h2>Testing ...</h2>
+	
+	<input type="hidden" name="selectedBTNRoute" id="selectedBTNRoute" value="">
     
     
   
@@ -30,7 +32,7 @@
 
 	<script>
 		//callback
-	document.addEventListener( "setCustomField", function(event) { embedded_svc.settings.extraPrechatFormDetails[3].value = event.detail.customField; event.detail.callback();  console.log(event.detail.customField2);}, false );
+	document.addEventListener( "setCustomField", function(event) { embedded_svc.settings.extraPrechatFormDetails[3].value = event.detail.customField; event.detail.callback();  console.log(event.detail.customField2); document.getElementById("selectedBTNRoute").value = event.detail.customField2;}, false );
 </script>
 
 <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
