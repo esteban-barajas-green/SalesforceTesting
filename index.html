@@ -29,7 +29,7 @@
 </style>
 
 	<script>
-	document.addEventListener( "setCustomField", function(event) { embedded_svc.settings.extraPrechatFormDetails[3].value = event.detail.customField; event.detail.callback(); }, false );
+	document.addEventListener( "setCustomField", function(event) { embedded_svc.settings.extraPrechatFormDetails[3].value = event.detail.customField; event.detail.callback();  console.log("test500LOG");}, false );
 </script>
 
 <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
