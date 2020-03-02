@@ -28,6 +28,10 @@
 	}
 </style>
 
+	<script>
+	document.addEventListener( "setCustomField", function(event) { embedded_svc.settings.extraPrechatFormDetails[0].value = event.detail.customField; event.detail.callback(); }, false );
+</script>
+
 <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
 <script type='text/javascript'>
 	var initESW = function(gslbBaseURL) {
@@ -53,7 +57,6 @@ embedded_svc.settings.extraPrechatFormDetails = [{
 }];
 		
 		
-document.addEventListener( "setCustomField", function(event) { embedded_svc.settings.extraPrechatFormDetails[0].value = event.detail.customField; event.detail.callback(); }, false );
 
 		
 		
