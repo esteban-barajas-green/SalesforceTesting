@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <h2>Testing ....</h2>
+    <h2>Testing ..</h2>
 	
 	<input type="hidden" name="selectedBTNRoute" id="selectedBTNRoute" value="">
     
@@ -75,6 +75,8 @@ embedded_svc.settings.extraPrechatFormDetails = [{
 			 //Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
 			var selectedBTNRouteValue = document.getElementById("selectedBTNRoute").value;
 			return selectedBTNRouteValue;	
+			console.log("should be a number");
+			console.log(selectedBTNRouteValue);
 		};
 		//embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
 		//embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
