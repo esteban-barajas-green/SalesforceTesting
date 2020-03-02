@@ -73,7 +73,8 @@ embedded_svc.settings.extraPrechatFormDetails = [{
 		// Settings for Chat
 		embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
 			 //Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
-			//var selectedBTNRouteValue = document.getElementById("selectedBTNRoute").value;
+			var selectedBTNRouteValue = document.getElementById("selectedBTNRoute").value;
+			console.log(selectedBTNRouteValue);
 			console.log("should be a number");
 			console.log("5732100000001Md");
 			return "5732100000001Md";	
