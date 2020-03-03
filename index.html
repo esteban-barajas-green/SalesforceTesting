@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <h2>Testing ..</h2>
+    <h2>Testing ...</h2>
 	
 	<input type="hidden" name="selectedBTNRoute" id="selectedBTNRoute" value="">
     
@@ -77,17 +77,19 @@ embedded_svc.settings.extraPrechatFormDetails = [{
 			//console.log(selectedBTNRouteValue);
 			//console.log("should be a number");
 			//console.log("5732100000001Md");
-			console.log("the value of prechatform[1]: " + prechatFormData[1].value);
-			if(prechatFormData[1].value === "IDS"){
-			   console.log("the IDS Tech block is being run...");	
-			   return "5732100000001Md";
+			//console.log("the value of prechatform[1]: " + prechatFormData[1].value);
+			if(prechatFormData[4].value === "A product question or recommendation"){
+			   console.log("Routing to Inside Sales...");	
+			   return "5732100000001MYAAY";
 			}
-			else if(prechatFormData[1].value === "Git"){
-			   console.log("the Git block is being run...");
-			   return "5732100000001eM";
+			else if(prechatFormData[4].value === "My existing order or account information"){
+			   console.log("Routing to Inside Sales...");
+			   return "5732100000001MYAAY";
 		        }
-				
-			
+			else if(prechatFormData[4].value === "Printer or software support"){
+			   console.log("Routing to Tech Support...");
+			   return "5732100000001MdAAI";
+			}	
 		};
 		//embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
 		//embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
