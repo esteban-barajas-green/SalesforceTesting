@@ -44,6 +44,7 @@ function myFunction() {
 	// Select the node that will be observed for mutations
 	//const targetNode = document.getElementById('root');
 	const targetNode = document.getElementsByClassName("helpButtonEnabled")[0];
+	console.log(document.getElementsByClassName("helpButtonEnabled")[0]);    
 
 	// Options for the observer (which mutations to observe)
 	const config = { attributes: true, childList: true, subtree: true, characterData:true, attributeOldValue : true };
