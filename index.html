@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <h2>Testing 20.0</h2>
+    <h2>Testing 21.0</h2>
 		
 <style type='text/css'>
 	.embeddedServiceHelpButton .helpButton .uiButton {
@@ -153,19 +153,20 @@ function myFunction() {
 var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
   //var list = document.querySelector('ol'); 
   var observer = new MutationObserver(function(mutations) {
-	  
-    mutations.forEach(function(mutation) {
+     
+      for (var i = 0; i < mutations.length; i++) {	  
+    //mutations.forEach(function(mutation) {
 	    //console.log('test2.0');
 	    //console.log(mutation.type);
 	    //console.log(mutation);
-      if (mutation.type === 'childList') {
-	      if(mutation.target.innerHTML === 'Chat Now'){
-	        if(mutation.removedNodes[0].nodeValue === 'Offline' && mutation.addedNodes[0].nodeValue === 'Chat Now'){
-		      console.log(mutation);
+      if (mutations[i].type === 'childList') {
+	      if(mutations[i].target.innerHTML === 'Chat Now'){
+	        if(mutations[i].removedNodes[0].nodeValue === 'Offline' && mutations[i].addedNodes[0].nodeValue === 'Chat Now'){
+		      console.log(mutations[i]);
 		      console.log('test');
-		      console.log('removedNodes Value: ' + mutation.removedNodes[0].nodeValue);
-		      console.log('addedNodes Value: ' + mutation.addedNodes[0].nodeValue);
-		      document.getElementById('myCheck').innerHTML = mutation.addedNodes[0].nodeValue;
+		      console.log('removedNodes Value: ' + mutations[i].removedNodes[0].nodeValue);
+		      console.log('addedNodes Value: ' + mutations[i].addedNodes[0].nodeValue);
+		      document.getElementById('myCheck').innerHTML = mutations[i].addedNodes[0].nodeValue;
 		      document.getElementById('myCheck').disabled = false;	
 	      }
       }  
