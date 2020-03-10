@@ -152,6 +152,9 @@ function myFunction() {
 var insertedNodes = [];
 var observer = new MutationObserver(function(mutations) {
  mutations.forEach(function(mutation) {
+	 
+	 console.log(mutation.type);
+	 console.log(mutation.nodeValue);
    for (var i = 0; i < mutation.addedNodes.length; i++)
      insertedNodes.push(mutation.addedNodes[i]);
  })
