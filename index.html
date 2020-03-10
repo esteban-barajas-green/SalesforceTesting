@@ -13,71 +13,8 @@
 </head>
 
 <body>
-    <h2>Testing </h2>
-	
-<form>
-<button id="myCheck" disabled="true" type="button" onclick="myFunction()">Offline</button>
-<!--<input type="checkbox" id="myCheck" onmouseover="myFunction()" onclick="">-->
-</form>
-	
-<script>
-function myFunction() {
-	console.log('getElementsByClassName[0]');
-  document.getElementsByClassName("helpButtonEnabled")[0].click()
-}
-</script>
-	
-
-	
-
-<span id="root" class="message">loading...</span>	
-	
-<script>
-      setTimeout(function() {
-	      console.log('Changed the span text!');
-        document.getElementById('root').innerHTML = "loaded...";
-      }, 3000);
-</script>		
-	
+    <h2>Testing.. </h2>
 		
-    <script>
-	// Select the node that will be observed for mutations
-	//const targetNode = document.getElementById('root');
-	const targetNode = document.getElementsByClassName("helpButtonEnabled")[0];
-	console.log(document.getElementsByClassName("helpButtonEnabled")[0]);    
-
-	// Options for the observer (which mutations to observe)
-	const config = { attributes: true, childList: true, subtree: true, characterData:true, attributeOldValue : true };
-
-	// Callback function to execute when mutations are observed
-	const callback = function(mutationsList, observer) {
-	    // Use traditional 'for loops' for IE 11
-	    for(let mutation of mutationsList) {
-		if (mutation.type === 'childList') {
-			//var btn3 = document.getElementById("root");
-			//btn3.value = 'online, chat us'; // will just add a hidden value
-			//btn3.innerHTML = 'online, chat us';
-		    document.getElementById("myCheck").disabled = false;
-		    console.log('A child node has been added or removed.');
-		    console.log(targetNode.value);	
-		    console.log(targetNode.innerHTML);	
-		    console.log(mutation);		
-		}
-		else if (mutation.type === 'attributes') {
-		    console.log('The ' + mutation.attributeName + ' attribute was modified...');
-		}
-	    }
-	};
-
-	// Create an observer instance linked to the callback function
-	const observer = new MutationObserver(callback);
-
-	// Start observing the target node for configured mutations
-	observer.observe(targetNode, config);
-    </script>	
-	
-		
-	
 <style type='text/css'>
 	.embeddedServiceHelpButton .helpButton .uiButton {
 		background-color: #005290;
@@ -173,6 +110,66 @@ function myFunction() {
 		initESW('https://service.force.com');
 	}
 </script>
+	
+	
+	
+<script>
+function myFunction() {
+	console.log('getElementsByClassName[0]');
+  document.getElementsByClassName("helpButtonEnabled")[0].click()
+}
+</script>
+	
+<form>
+<button id="myCheck" disabled="true" type="button" onclick="myFunction()">Offline</button>
+<!--<input type="checkbox" id="myCheck" onmouseover="myFunction()" onclick="">-->
+</form>
+	
+<span id="root" class="message">loading...</span>	
+	
+<script>
+      setTimeout(function() {
+	      console.log('Changed the span text!');
+        document.getElementById('root').innerHTML = "loaded...";
+      }, 3000);
+</script>		
+	
+		
+    <script>
+	// Select the node that will be observed for mutations
+	//const targetNode = document.getElementById('root');
+	const targetNode = document.getElementsByClassName("helpButtonEnabled")[0];
+	console.log(document.getElementsByClassName("helpButtonEnabled")[0]);    
+
+	// Options for the observer (which mutations to observe)
+	const config = { attributes: true, childList: true, subtree: true, characterData:true, attributeOldValue : true };
+
+	// Callback function to execute when mutations are observed
+	const callback = function(mutationsList, observer) {
+	    // Use traditional 'for loops' for IE 11
+	    for(let mutation of mutationsList) {
+		if (mutation.type === 'childList') {
+			//var btn3 = document.getElementById("root");
+			//btn3.value = 'online, chat us'; // will just add a hidden value
+			//btn3.innerHTML = 'online, chat us';
+		    document.getElementById("myCheck").disabled = false;
+		    console.log('A child node has been added or removed.');
+		    console.log(targetNode.value);	
+		    console.log(targetNode.innerHTML);	
+		    console.log(mutation);		
+		}
+		else if (mutation.type === 'attributes') {
+		    console.log('The ' + mutation.attributeName + ' attribute was modified...');
+		}
+	    }
+	};
+
+	// Create an observer instance linked to the callback function
+	const observer = new MutationObserver(callback);
+
+	// Start observing the target node for configured mutations
+	observer.observe(targetNode, config);
+    </script>	
 
 </body>
 </html>
