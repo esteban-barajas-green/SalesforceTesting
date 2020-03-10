@@ -176,7 +176,8 @@ var MutationObserver = window.MutationObserver || window.WebKitMutationObserver 
   observer.observe(document, {
   	attributes: true,
   	childList: true,
-  	characterData: true
+  	characterData: true,
+	subtree: true  
    });	    
 	    
 	    
