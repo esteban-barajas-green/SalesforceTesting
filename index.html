@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <h2>Testing 11.0</h2>
+    <h2>Testing 12.0</h2>
 		
 <style type='text/css'>
 	.embeddedServiceHelpButton .helpButton .uiButton {
@@ -153,8 +153,9 @@ function myFunction() {
 
 })
 
-const bears = document.querySelectorAll(".testBTNClass")[0];
+const bears = document.querySelector('#root');
 	    console.log(document.querySelectorAll(".testBTNClass")[0]);
+	    console.log(document.querySelector('#root'));
 observer.observe(bears, {
 childList: true
 
