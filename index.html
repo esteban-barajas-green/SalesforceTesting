@@ -161,6 +161,8 @@ var MutationObserver = window.MutationObserver || window.WebKitMutationObserver 
       if (mutation.type === 'childList') {
 	      if(mutation.target.innerHTML == 'Chat Now'){
 		      console.log(mutation);
+		      conseole.log('test');
+		      console.log(mutation.removedNodes[0].nodeValue);
 	      }
 	      
        // var list_values = [].slice.call(list.children)
