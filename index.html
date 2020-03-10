@@ -41,19 +41,30 @@ function myFunction() {
 	
 		
     <script>
-      var targetNode = document.getElementById('root');
-      var config = { attributes: true, childList: true, subtree: true, characterData:true };
-      var observer = new MutationObserver(function() {
-        //alert("#root div changed!");  
-	console.log("!span text change detected!");      
-	var btn2 = document.getElementById("myCheck");
-	btn2.value = 'Online, Chat with Us!'; // will just add a hidden value
-	btn2.innerHTML = 'Online, Chat with Us!';      
-        // stop observing
-        observer.disconnect();      
-      });
+	// Select the node that will be observed for mutations
+	const targetNode = document.getElementById('root');
 
-      observer.observe(targetNode, config);
+	// Options for the observer (which mutations to observe)
+	const config = { attributes: true, childList: true, subtree: true, characterData:true };
+
+	// Callback function to execute when mutations are observed
+	const callback = function(mutationsList, observer) {
+	    // Use traditional 'for loops' for IE 11
+	    for(let mutation of mutationsList) {
+		if (mutation.type === 'childList') {
+		    console.log('A child node has been added or removed.');
+		}
+		else if (mutation.type === 'attributes') {
+		    console.log('The ' + mutation.attributeName + ' attribute was modified.');
+		}
+	    }
+	};
+
+	// Create an observer instance linked to the callback function
+	const observer = new MutationObserver(callback);
+
+	// Start observing the target node for configured mutations
+	observer.observe(targetNode, config);
     </script>	
 	
 		
