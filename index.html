@@ -107,6 +107,7 @@
 		s.setAttribute('src', 'https://brady--americas.my.salesforce.com/embeddedservice/5.0/esw.min.js');
 		s.onload = function() {
 			initESW(null);
+			console.log(document.querySelector('#helpButtonSpan'));
 		};
 		//myFunction2();
 		document.body.appendChild(s);
