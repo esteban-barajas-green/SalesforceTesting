@@ -52,6 +52,9 @@ function myFunction() {
 	    // Use traditional 'for loops' for IE 11
 	    for(let mutation of mutationsList) {
 		if (mutation.type === 'childList') {
+			var btn3 = document.getElementById("root");
+			btn3.value = 'online, chat us'; // will just add a hidden value
+			btn3.innerHTML = 'online, chat us';
 		    console.log('A child node has been added or removed.');
 		}
 		else if (mutation.type === 'attributes') {
