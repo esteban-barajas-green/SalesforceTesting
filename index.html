@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <h2>Testing 27.0</h2>
+    <h2>Testing 19.0</h2>
 		
 <style type='text/css'>
 	.embeddedServiceHelpButton .helpButton .uiButton {
@@ -153,32 +153,23 @@ function myFunction() {
 var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
   //var list = document.querySelector('ol'); 
   var observer = new MutationObserver(function(mutations) {
-     
-      for (var i = 0; i < mutations.length; i++) {	
-	      //console.log("print mutations[i]");
-	      //console.log(mutations[i]);
-    //mutations.forEach(function(mutation) {
+	  
+    mutations.forEach(function(mutation) {
 	    //console.log('test2.0');
 	    //console.log(mutation.type);
 	    //console.log(mutation);
-      if (mutations[i].type === 'childList') {
-	      //if(mutations[i].target.innerHTML === 'Chat Now'){
-	        //if(mutations[i].removedNodes[0].nodeValue === 'Offline' && mutations[i].addedNodes[0].nodeValue === 'Chat Now'){
-	          //if(mutations[i].addedNodes[0].nodeValue === 'Chat Now'){ //wholeText
-	            if(mutations[i].addedNodes[0].wholeText === 'Chat Now'){ //wholeText
-		      console.log(mutations[i]);
-		      console.log('detected chat now change!');
-		      //console.log('removedNodes Value: ' + mutations[i].removedNodes[0].nodeValue);
-		      //console.log('addedNodes Value: ' + mutations[i].addedNodes[0].nodeValue);
-		      //console.log('next sibling: ');
-		      //console.log(mutations[i].nextSibling);
-		      //console.log('Changed attribute: ' + mutations[i].attributeName);
-		      //console.log('attributeNamespace: ' + mutations[i].attributeNamespace);	
-		      document.getElementById('myCheck').innerHTML = mutations[i].addedNodes[0].nodeValue;
+      if (mutation.type === 'childList') {
+	      console.log(mutation.nodeTtype);
+	      if(mutation.target.innerHTML == 'Chat Now'){
+	        if(mutation.removedNodes[0].nodeValue === 'Offline' && mutation.addedNodes[0].nodeValue === 'Chat Now'){
+		      console.log(mutation);
+		      console.log('test');
+		      console.log('removedNodes Value: ' + mutation.removedNodes[0].nodeValue);
+		      console.log('addedNodes Value: ' + mutation.addedNodes[0].nodeValue);
+		      document.getElementById('myCheck').innerHTML = mutation.addedNodes[0].nodeValue;
 		      document.getElementById('myCheck').disabled = false;	
-		      observer.disconnect();	  
 	      }
-      //}  
+      }  
        // var list_values = [].slice.call(list.children)
            // .map( function(node) { return node.innerHTML; })
             //.filter( function(s) {
@@ -190,17 +181,17 @@ var MutationObserver = window.MutationObserver || window.WebKitMutationObserver 
               //}
         //});
         //console.log(list_values);
-      }else if(mutations[i].type === 'characterData'){
+      }else if(mutation.type === 'characterData'){
 	      //console.log(mutation);
 	       
       }
-    }//);
+    });
   });
-	    
- //characterData: true,
+ 
   observer.observe(document, {
   	attributes: true,
   	childList: true,
+  	characterData: true,
 	subtree: true  
    });	    
 	    
@@ -236,11 +227,8 @@ console.log(insertedNodes);
 	if (mutation.addedNodes.length) {
    		console.log(mutation.addedNodes[0]);
    }
-
  })
-
 })
-
 const bears = document.querySelector('#helpButtonSpan');
 	    console.log("helpButtonSpan");
 	    console.log(document.querySelector('#helpButtonSpan'));
@@ -248,7 +236,6 @@ const bears = document.querySelector('#helpButtonSpan');
 	    console.log(document.querySelector('#root'));
 observer.observe(bears, {
 childList: true
-
 });
 */	    
 	    /*
@@ -257,10 +244,8 @@ childList: true
 	//const targetNode = document.getElementById('root');
 	const targetNode = document.getElementsByClassName("helpButtonEnabled")[0];
 	console.log(document.getElementsByClassName("helpButtonEnabled")[0]);    
-
 	// Options for the observer (which mutations to observe)
 	const config = { attributes: true, childList: true, subtree: true, characterData:true, attributeOldValue : true };
-
 	// Callback function to execute when mutations are observed
 	const callback = function(mutationsList, observer) {
 	    // Use traditional 'for loops' for IE 11
@@ -280,10 +265,8 @@ childList: true
 		}
 	    }
 	};
-
 	// Create an observer instance linked to the callback function
 	const observer = new MutationObserver(callback);
-
 	// Start observing the target node for configured mutations
 	observer.observe(targetNode, config);
 	    }
@@ -298,7 +281,6 @@ childList: true
   <li>Coffee</li>
   <li>Tea</li>
 </ul>
-
 <button onclick="myFunction200()">Try it</button>
 -->
 	
