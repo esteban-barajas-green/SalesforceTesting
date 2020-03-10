@@ -162,7 +162,8 @@ var MutationObserver = window.MutationObserver || window.WebKitMutationObserver 
 	      if(mutation.target.innerHTML == 'Chat Now'){
 		      console.log(mutation);
 		      console.log('test');
-		      console.log(mutation.removedNodes[0].nodeValue);
+		      console.log('removedNodes Value: ' + mutation.removedNodes[0].nodeValue);
+		      console.log('addedNodes Value: ' + mutation.addedNodes[0].nodeValue);
 	      }
 	      
        // var list_values = [].slice.call(list.children)
