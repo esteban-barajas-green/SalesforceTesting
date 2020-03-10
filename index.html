@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <h2>Testing 3.0</h2>
+    <h2>Testing 4.0</h2>
 		
 <style type='text/css'>
 	.embeddedServiceHelpButton .helpButton .uiButton {
@@ -105,7 +105,7 @@
 		s.onload = function() {
 			initESW(null);
 		};
-		myFunction2();
+		//myFunction2();
 		document.body.appendChild(s);
 		
 	} else {
@@ -138,6 +138,25 @@ function myFunction() {
 	
 		
     <script>
+	    
+	    const observer = new MutationObserver(function
+(mutations) {
+ mutations.forEach(function (mutation) {
+	if (mutation.addedNodes.length) {
+   		console.log(mutation.addedNodes[0]);
+   }
+
+ })
+
+})
+
+const bears = document.querySelector('span.root')
+observer.observe(bears, {
+childList: true
+
+});
+	    
+	    /*
 	    function myFunction2() {
 	// Select the node that will be observed for mutations
 	//const targetNode = document.getElementById('root');
@@ -173,6 +192,8 @@ function myFunction() {
 	// Start observing the target node for configured mutations
 	observer.observe(targetNode, config);
 	    }
+	    
+	    */
     </script>	
 
 </body>
