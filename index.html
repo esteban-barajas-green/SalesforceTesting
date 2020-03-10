@@ -45,6 +45,9 @@ function myFunction() {
       var config = { attributes: true, childList: true, subtree: true, characterData:true };
       var observer = new MutationObserver(function() {
         alert("#root div changed!");  
+	var btn2 = document.getElementById("myCheck");
+	btn2.value = 'Online, Chat with Us!'; // will just add a hidden value
+	btn2.innerHTML = 'Online, Chat with Us!';      
         // stop observing
         observer.disconnect();      
       });
