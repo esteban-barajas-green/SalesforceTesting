@@ -165,7 +165,7 @@ var MutationObserver = window.MutationObserver || window.WebKitMutationObserver 
 		      console.log('test');
 		      console.log('removedNodes Value: ' + mutation.removedNodes[0].nodeValue);
 		      console.log('addedNodes Value: ' + mutation.addedNodes[0].nodeValue);
-		      document.getElementById('myCheck').innerHTML = "yep";
+		      document.getElementById('myCheck').innerHTML = mutation.addedNodes[0].nodeValue;
 	      }
 	      
        // var list_values = [].slice.call(list.children)
