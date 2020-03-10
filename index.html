@@ -156,7 +156,9 @@ var MutationObserver = window.MutationObserver || window.WebKitMutationObserver 
   var observer = new MutationObserver(function(mutations) {
 	  
     mutations.forEach(function(mutation) {
-	    console.log(test);
+	    console.log('test');
+	    console.log(mutation.type);
+	    console.log(mutation);
       if (mutation.type === 'childList') {
         var list_values = [].slice.call(list.children)
             .map( function(node) { return node.innerHTML; })
