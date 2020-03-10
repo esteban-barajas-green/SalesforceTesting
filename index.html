@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <h2>Testing 17.0</h2>
+    <h2>Testing 18.0</h2>
 		
 <style type='text/css'>
 	.embeddedServiceHelpButton .helpButton .uiButton {
@@ -150,6 +150,40 @@ function myFunction() {
 		
     <script>
 	    
+var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
+  //var list = document.querySelector('ol');
+ 
+  var observer = new MutationObserver(function(mutations) {
+	  
+    mutations.forEach(function(mutation) {
+	    console.log(test);
+      if (mutation.type === 'childList') {
+        var list_values = [].slice.call(list.children)
+            .map( function(node) { return node.innerHTML; })
+            .filter( function(s) {
+              if (s === '<br />') {
+                return false;
+              }
+              else {
+                return true;
+              }
+        });
+        console.log(list_values);
+      }
+    });
+  });
+ 
+  observer.observe(document, {
+  	attributes: true,
+  	childList: true,
+  	characterData: true
+   });	    
+	    
+	    
+	    
+	    
+	    
+/*	    
 var insertedNodes = [];
 var observer = new MutationObserver(function(mutations) {
  mutations.forEach(function(mutation) {
@@ -162,6 +196,10 @@ var observer = new MutationObserver(function(mutations) {
 });
 observer.observe(document, { childList: true });
 console.log(insertedNodes);	    
+//here	    
+*/	 
+	    
+	    
 	    
 	    
 	    
