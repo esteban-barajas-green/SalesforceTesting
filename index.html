@@ -159,7 +159,10 @@ var MutationObserver = window.MutationObserver || window.WebKitMutationObserver 
 	    //console.log(mutation.type);
 	    //console.log(mutation);
       if (mutation.type === 'childList') {
-	      console.log(mutation);
+	      if(mutation.target.innerHTML == 'Chat Now'){
+		      console.log(mutation);
+	      }
+	      
        // var list_values = [].slice.call(list.children)
            // .map( function(node) { return node.innerHTML; })
             //.filter( function(s) {
