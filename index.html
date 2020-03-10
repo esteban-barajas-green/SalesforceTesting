@@ -45,7 +45,7 @@ function myFunction() {
 	const targetNode = document.getElementById('root');
 
 	// Options for the observer (which mutations to observe)
-	const config = { attributes: true, childList: true, subtree: true, characterData:true };
+	const config = { attributes: true, childList: true, subtree: true, characterData:true, attributeOldValue : true };
 
 	// Callback function to execute when mutations are observed
 	const callback = function(mutationsList, observer) {
@@ -55,11 +55,11 @@ function myFunction() {
 			//var btn3 = document.getElementById("root");
 			//btn3.value = 'online, chat us'; // will just add a hidden value
 			//btn3.innerHTML = 'online, chat us';
-		    console.log('A child node has been added or removed.');
+		    console.log('A child node has been added or removed...');
 		    console.log(mutation);		
 		}
 		else if (mutation.type === 'attributes') {
-		    console.log('The ' + mutation.attributeName + ' attribute was modified.');
+		    console.log('The ' + mutation.attributeName + ' attribute was modified...');
 		}
 	    }
 	};
