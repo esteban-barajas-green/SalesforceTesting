@@ -162,16 +162,17 @@ var MutationObserver = window.MutationObserver || window.WebKitMutationObserver 
 	      //console.log('size: ' + mutation.addedNodes.length);
 	      //console.log(mutation);
 	      //console.log(mutation.addedNodes[0].nodeType);
-	      if(mutation.target.innerHTML == 'Chat Now'){
+	      if(mutation.target.innerHTML == 'Chat Now' && mutation.target.nodeName === "SPAN"){
 	        //if(mutation.removedNodes[0].nodeValue === 'Offline' && mutation.addedNodes[0].nodeValue === 'Chat Now'){
 		  if(mutation.addedNodes[0].nodeValue === 'Chat Now'){
 		      console.log(mutation);
+		      console.log(mutation.target.nodeName);	  
 		      //console.log('test');
 		      //console.log('removedNodes Value: ' + mutation.removedNodes[0].nodeValue);
 		      console.log('addedNodes Value: ' + mutation.addedNodes[0].nodeValue);
 		      document.getElementById('myCheck').innerHTML = mutation.addedNodes[0].nodeValue;
 		      document.getElementById('myCheck').disabled = false;	
-			  observer.disconnect();
+		      observer.disconnect();
 	      }
       }  
        // var list_values = [].slice.call(list.children)
