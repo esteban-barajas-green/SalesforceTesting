@@ -160,7 +160,7 @@ var MutationObserver = window.MutationObserver || window.WebKitMutationObserver 
 	    //console.log(mutation);
       if (mutation.type === 'childList') {
 	      console.log(mutation);
-	      console.log(mutation.nodeType);
+	      console.log(mutation.addedNodes[0].nodeType);
 	      if(mutation.target.innerHTML == 'Chat Now'){
 	        if(mutation.removedNodes[0].nodeValue === 'Offline' && mutation.addedNodes[0].nodeValue === 'Chat Now'){
 		      console.log(mutation);
