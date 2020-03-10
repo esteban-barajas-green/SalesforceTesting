@@ -24,10 +24,16 @@ function myFunction() {
 	console.log('getElementsByClassName[0]');
   document.getElementsByClassName("helpButtonEnabled")[0].click()
 }
+</script>
+	
+<script>
+      setTimeout(function() {
+        document.getElementById('root').innerHTML = "loaded...";
+      }, 3000);
 </script>	
 	
 
-<span class="message">loading...</span>	
+<span id="root" class="message">loading...</span>	
 		
 	
 <style type='text/css'>
