@@ -169,7 +169,7 @@ var MutationObserver = window.MutationObserver || window.WebKitMutationObserver 
 		      console.log('removedNodes Value: ' + mutations[i].removedNodes[0].nodeValue);
 		      console.log('addedNodes Value: ' + mutations[i].addedNodes[0].nodeValue);
 		      console.log('next sibling: ');
-		      console.log('mutations[i].nextSibling');
+		      console.log(mutations[i].nextSibling);
 		      console.log('Changed attribute: ' + mutations[i].attributeName);
 		      console.log('attributeNamespace: ' + mutations[i].attributeNamespace);	
 		      document.getElementById('myCheck').innerHTML = mutations[i].addedNodes[0].nodeValue;
