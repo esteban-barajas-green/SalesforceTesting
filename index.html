@@ -158,7 +158,8 @@ var MutationObserver = window.MutationObserver || window.WebKitMutationObserver 
 	    //console.log('test2.0');
 	    //console.log(mutation.type);
 	    //console.log(mutation);
-      if (mutation.type === 'childList') {
+      if (mutation.type === 'childList' && mutation.addedNodes.length) {
+	      console.log(mutation.addedNodes.length);
 	      console.log(mutation);
 	      console.log(mutation.addedNodes[0].nodeType);
 	      if(mutation.target.innerHTML == 'Chat Now'){
