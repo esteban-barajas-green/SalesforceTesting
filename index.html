@@ -167,7 +167,7 @@ var MutationObserver = window.MutationObserver || window.WebKitMutationObserver 
 		  if(mutation.addedNodes[0].nodeValue === 'Chat Now'){
 		      console.log(mutation);
 		      //console.log('test');
-		      console.log('removedNodes Value: ' + mutation.removedNodes[0].nodeValue);
+		      //console.log('removedNodes Value: ' + mutation.removedNodes[0].nodeValue);
 		      console.log('addedNodes Value: ' + mutation.addedNodes[0].nodeValue);
 		      document.getElementById('myCheck').innerHTML = mutation.addedNodes[0].nodeValue;
 		      document.getElementById('myCheck').disabled = false;	
