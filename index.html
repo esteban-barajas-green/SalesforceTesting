@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <h2>Testing 14.0</h2>
+    <h2>Testing 15.0</h2>
 		
 <style type='text/css'>
 	.embeddedServiceHelpButton .helpButton .uiButton {
@@ -116,7 +116,8 @@
 	} else {
 		
 		console.log("else...");
-		console.log(document.querySelector('#helpButtonSpan'));
+		setInterval(function(){ console.log(document.querySelector('#helpButtonSpan')); }, 8000);
+		//console.log(document.querySelector('#helpButtonSpan'));
 		initESW('https://service.force.com');
 		console.log(document.querySelector('#helpButtonSpan'));
 	}
