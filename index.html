@@ -163,7 +163,8 @@ var MutationObserver = window.MutationObserver || window.WebKitMutationObserver 
 	      //console.log(mutation);
 	      //console.log(mutation.addedNodes[0].nodeType);
 	      if(mutation.target.innerHTML == 'Chat Now'){
-	        if(mutation.removedNodes[0].nodeValue === 'Offline' && mutation.addedNodes[0].nodeValue === 'Chat Now'){
+	        //if(mutation.removedNodes[0].nodeValue === 'Offline' && mutation.addedNodes[0].nodeValue === 'Chat Now'){
+		  if(mutation.addedNodes[0].nodeValue === 'Chat Now'){
 		      console.log(mutation);
 		      //console.log('test');
 		      console.log('removedNodes Value: ' + mutation.removedNodes[0].nodeValue);
