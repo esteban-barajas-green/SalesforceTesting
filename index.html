@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <h2>Testing 19.0</h2>
+    <h2>Testing 20.0</h2>
 		
 <style type='text/css'>
 	.embeddedServiceHelpButton .helpButton .uiButton {
@@ -159,7 +159,7 @@ var MutationObserver = window.MutationObserver || window.WebKitMutationObserver 
 	    //console.log(mutation.type);
 	    //console.log(mutation);
       if (mutation.type === 'childList') {
-	      if(mutation.target.innerHTML == 'Chat Now'){
+	      if(mutation.target.innerHTML === 'Chat Now'){
 	        if(mutation.removedNodes[0].nodeValue === 'Offline' && mutation.addedNodes[0].nodeValue === 'Chat Now'){
 		      console.log(mutation);
 		      console.log('test');
@@ -186,11 +186,11 @@ var MutationObserver = window.MutationObserver || window.WebKitMutationObserver 
       }
     });
   });
- 
+	    
+ //characterData: true,
   observer.observe(document, {
   	attributes: true,
   	childList: true,
-  	characterData: true,
 	subtree: true  
    });	    
 	    
