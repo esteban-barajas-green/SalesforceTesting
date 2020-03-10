@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <h2>Testing </h2>
+    <h2>Testing 2.0</h2>
 		
 <style type='text/css'>
 	.embeddedServiceHelpButton .helpButton .uiButton {
@@ -106,6 +106,7 @@
 			initESW(null);
 		};
 		document.body.appendChild(s);
+		myFunction2();
 	} else {
 		initESW('https://service.force.com');
 	}
@@ -136,6 +137,7 @@ function myFunction() {
 	
 		
     <script>
+	    function myFunction2() {
 	// Select the node that will be observed for mutations
 	//const targetNode = document.getElementById('root');
 	const targetNode = document.getElementsByClassName("helpButtonEnabled")[0];
@@ -153,7 +155,7 @@ function myFunction() {
 			//btn3.value = 'online, chat us'; // will just add a hidden value
 			//btn3.innerHTML = 'online, chat us';
 		    //document.getElementById("myCheck").disabled = false;
-		    console.log('A child node has been added or removed.');
+		    console.log('A child node has been added or removed. v2');
 		    console.log(targetNode.value);	
 		    console.log(targetNode.innerHTML);	
 		    console.log(mutation);		
@@ -169,6 +171,7 @@ function myFunction() {
 
 	// Start observing the target node for configured mutations
 	observer.observe(targetNode, config);
+	    }
     </script>	
 
 </body>
