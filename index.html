@@ -154,7 +154,9 @@ var MutationObserver = window.MutationObserver || window.WebKitMutationObserver 
   //var list = document.querySelector('ol'); 
   var observer = new MutationObserver(function(mutations) {
      
-      for (var i = 0; i < mutations.length; i++) {	  
+      for (var i = 0; i < mutations.length; i++) {	
+	      console.log("print mutations[i]");
+	      console.log(mutations[i]);
     //mutations.forEach(function(mutation) {
 	    //console.log('test2.0');
 	    //console.log(mutation.type);
