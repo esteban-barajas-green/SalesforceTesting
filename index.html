@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <h2>Testing 19.0</h2>
+    <h2>Testing 20.0</h2>
 		
 <style type='text/css'>
 	.embeddedServiceHelpButton .helpButton .uiButton {
@@ -171,6 +171,7 @@ var MutationObserver = window.MutationObserver || window.WebKitMutationObserver 
 		      console.log('addedNodes Value: ' + mutation.addedNodes[0].nodeValue);
 		      document.getElementById('myCheck').innerHTML = mutation.addedNodes[0].nodeValue;
 		      document.getElementById('myCheck').disabled = false;	
+			  observer.disconnect();
 	      }
       }  
        // var list_values = [].slice.call(list.children)
