@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <h2>Testing 24.0</h2>
+    <h2>Testing 26.0</h2>
 		
 <style type='text/css'>
 	.embeddedServiceHelpButton .helpButton .uiButton {
@@ -166,13 +166,13 @@ var MutationObserver = window.MutationObserver || window.WebKitMutationObserver 
 	        //if(mutations[i].removedNodes[0].nodeValue === 'Offline' && mutations[i].addedNodes[0].nodeValue === 'Chat Now'){
 	          if(mutations[i].addedNodes[0].nodeValue === 'Chat Now'){
 		      console.log(mutations[i]);
-		      console.log('test');
-		      console.log('removedNodes Value: ' + mutations[i].removedNodes[0].nodeValue);
-		      console.log('addedNodes Value: ' + mutations[i].addedNodes[0].nodeValue);
-		      console.log('next sibling: ');
-		      console.log(mutations[i].nextSibling);
-		      console.log('Changed attribute: ' + mutations[i].attributeName);
-		      console.log('attributeNamespace: ' + mutations[i].attributeNamespace);	
+		      console.log('detected chat now change!');
+		      //console.log('removedNodes Value: ' + mutations[i].removedNodes[0].nodeValue);
+		      //console.log('addedNodes Value: ' + mutations[i].addedNodes[0].nodeValue);
+		      //console.log('next sibling: ');
+		      //console.log(mutations[i].nextSibling);
+		      //console.log('Changed attribute: ' + mutations[i].attributeName);
+		      //console.log('attributeNamespace: ' + mutations[i].attributeNamespace);	
 		      document.getElementById('myCheck').innerHTML = mutations[i].addedNodes[0].nodeValue;
 		      document.getElementById('myCheck').disabled = false;	
 		      observer.disconnect();	  
