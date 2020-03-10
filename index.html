@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <h2>Testing 22.0</h2>
+    <h2>Testing 23.0</h2>
 		
 <style type='text/css'>
 	.embeddedServiceHelpButton .helpButton .uiButton {
@@ -162,8 +162,9 @@ var MutationObserver = window.MutationObserver || window.WebKitMutationObserver 
 	    //console.log(mutation.type);
 	    //console.log(mutation);
       if (mutations[i].type === 'childList') {
-	      if(mutations[i].target.innerHTML === 'Chat Now'){
-	        if(mutations[i].removedNodes[0].nodeValue === 'Offline' && mutations[i].addedNodes[0].nodeValue === 'Chat Now'){
+	      //if(mutations[i].target.innerHTML === 'Chat Now'){
+	        //if(mutations[i].removedNodes[0].nodeValue === 'Offline' && mutations[i].addedNodes[0].nodeValue === 'Chat Now'){
+	          if(mutations[i].addedNodes[0].nodeValue === 'Chat Now'){
 		      console.log(mutations[i]);
 		      console.log('test');
 		      console.log('removedNodes Value: ' + mutations[i].removedNodes[0].nodeValue);
@@ -175,7 +176,7 @@ var MutationObserver = window.MutationObserver || window.WebKitMutationObserver 
 		      document.getElementById('myCheck').innerHTML = mutations[i].addedNodes[0].nodeValue;
 		      document.getElementById('myCheck').disabled = false;	
 	      }
-      }  
+      //}  
        // var list_values = [].slice.call(list.children)
            // .map( function(node) { return node.innerHTML; })
             //.filter( function(s) {
