@@ -159,7 +159,7 @@ var MutationObserver = window.MutationObserver || window.WebKitMutationObserver 
 	    //console.log(mutation.type);
 	    //console.log(mutation);
       if (mutation.type === 'childList') {
-	      //if(mutation.target.innerHTML == 'Chat Now'){
+	      if(mutation.target.innerHTML == 'Chat Now'){
 	        if(mutation.removedNodes[0].nodeValue === 'Offline' && mutation.addedNodes[0].nodeValue === 'Chat Now'){
 		      console.log(mutation);
 		      console.log('test');
@@ -167,7 +167,7 @@ var MutationObserver = window.MutationObserver || window.WebKitMutationObserver 
 		      console.log('addedNodes Value: ' + mutation.addedNodes[0].nodeValue);
 		      document.getElementById('myCheck').innerHTML = mutation.addedNodes[0].nodeValue;
 	      }
-	      
+      }  
        // var list_values = [].slice.call(list.children)
            // .map( function(node) { return node.innerHTML; })
             //.filter( function(s) {
