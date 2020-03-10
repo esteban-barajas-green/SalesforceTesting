@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <h2>Testing 15.0</h2>
+    <h2>Testing 16.0</h2>
 		
 <style type='text/css'>
 	.embeddedServiceHelpButton .helpButton .uiButton {
@@ -149,6 +149,20 @@ function myFunction() {
 		
     <script>
 	    
+var insertedNodes = [];
+var observer = new MutationObserver(function(mutations) {
+ mutations.forEach(function(mutation) {
+   for (var i = 0; i < mutation.addedNodes.length; i++)
+     insertedNodes.push(mutation.addedNodes[i]);
+ })
+});
+observer.observe(document, { childList: true });
+console.log(insertedNodes);	    
+	    
+	    
+	    
+	    
+/*	    
 	    const observer = new MutationObserver(function
 (mutations) {
  mutations.forEach(function (mutation) {
@@ -169,7 +183,7 @@ observer.observe(bears, {
 childList: true
 
 });
-	    
+*/	    
 	    /*
 	    function myFunction2() {
 	// Select the node that will be observed for mutations
