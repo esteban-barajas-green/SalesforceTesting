@@ -26,15 +26,31 @@ function myFunction() {
 }
 </script>
 	
+
+	
+
+<span id="root" class="message">loading...</span>	
+	
 <script>
       setTimeout(function() {
 	      console.log('Changed the span text!');
         document.getElementById('root').innerHTML = "loaded...";
       }, 3000);
-</script>	
+</script>		
 	
+		
+    <script>
+      var targetNode = document.getElementById('root');
+      var config = { attributes: true, childList: true, subtree: true, characterData:true };
+      var observer = new MutationObserver(function() {
+        alert("#root div changed!");  
+        // stop observing
+        observer.disconnect();      
+      });
 
-<span id="root" class="message">loading...</span>	
+      observer.observe(targetNode, config);
+    </script>	
+	
 		
 	
 <style type='text/css'>
