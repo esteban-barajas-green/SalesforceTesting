@@ -134,7 +134,7 @@ function myFunction() {
 </script>
 	
 <form>
-<button class="testBTNClass" id="myCheck" type="button" onclick="myFunction()">Offline</button>
+<button class="testBTNClass" disabled="true" id="myCheck" type="button" onclick="myFunction()">Offline</button>
 <!--<input type="checkbox" id="myCheck" onmouseover="myFunction()" onclick="">-->
 </form>
 	
@@ -166,6 +166,7 @@ var MutationObserver = window.MutationObserver || window.WebKitMutationObserver 
 		      console.log('removedNodes Value: ' + mutation.removedNodes[0].nodeValue);
 		      console.log('addedNodes Value: ' + mutation.addedNodes[0].nodeValue);
 		      document.getElementById('myCheck').innerHTML = mutation.addedNodes[0].nodeValue;
+		      document.getElementById('myCheck').disabled = false;	
 	      }
       }  
        // var list_values = [].slice.call(list.children)
