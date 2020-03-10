@@ -159,6 +159,7 @@ var MutationObserver = window.MutationObserver || window.WebKitMutationObserver 
 	    //console.log(mutation.type);
 	    //console.log(mutation);
       if (mutation.type === 'childList') {
+	      console.log(mutation);
        // var list_values = [].slice.call(list.children)
            // .map( function(node) { return node.innerHTML; })
             //.filter( function(s) {
@@ -171,7 +172,7 @@ var MutationObserver = window.MutationObserver || window.WebKitMutationObserver 
         //});
         //console.log(list_values);
       }else if(mutation.type === 'characterData'){
-	      console.log(mutation);
+	      //console.log(mutation);
 	       
       }
     });
