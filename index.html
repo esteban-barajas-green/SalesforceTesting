@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <h2>Testing 26.0</h2>
+    <h2>Testing 27.0</h2>
 		
 <style type='text/css'>
 	.embeddedServiceHelpButton .helpButton .uiButton {
@@ -164,7 +164,8 @@ var MutationObserver = window.MutationObserver || window.WebKitMutationObserver 
       if (mutations[i].type === 'childList') {
 	      //if(mutations[i].target.innerHTML === 'Chat Now'){
 	        //if(mutations[i].removedNodes[0].nodeValue === 'Offline' && mutations[i].addedNodes[0].nodeValue === 'Chat Now'){
-	          if(mutations[i].addedNodes[0].nodeValue === 'Chat Now'){
+	          //if(mutations[i].addedNodes[0].nodeValue === 'Chat Now'){ //wholeText
+	            if(mutations[i].addedNodes[0].wholeText === 'Chat Now'){ //wholeText
 		      console.log(mutations[i]);
 		      console.log('detected chat now change!');
 		      //console.log('removedNodes Value: ' + mutations[i].removedNodes[0].nodeValue);
