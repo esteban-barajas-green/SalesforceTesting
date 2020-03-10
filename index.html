@@ -155,8 +155,8 @@ var MutationObserver = window.MutationObserver || window.WebKitMutationObserver 
   var observer = new MutationObserver(function(mutations) {
 	  
     mutations.forEach(function(mutation) {
-	    console.log('test2.0');
-	    console.log(mutation.type);
+	    //console.log('test2.0');
+	    //console.log(mutation.type);
 	    //console.log(mutation);
       if (mutation.type === 'childList') {
        // var list_values = [].slice.call(list.children)
@@ -170,6 +170,9 @@ var MutationObserver = window.MutationObserver || window.WebKitMutationObserver 
               //}
         //});
         //console.log(list_values);
+      }else if(mutation.type === 'characterData'){
+	      console.log(mutation);
+	       
       }
     });
   });
