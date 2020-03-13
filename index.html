@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <h2>Testing 20.0</h2>
+    <h2>Testing 100.0</h2>
 		
 <style type='text/css'>
 	.embeddedServiceHelpButton .helpButton .uiButton {
@@ -128,13 +128,13 @@
 	
 <script>
 function myFunction() {
-	console.log('getElementsByClassName[0]');
+	//console.log('getElementsByClassName[0]');
   document.getElementsByClassName("helpButtonEnabled")[0].click()
 }
 </script>
 	
 <form>
-<button class="testBTNClass" disabled="true" id="myCheck" type="button" onclick="myFunction()">Offline</button>
+<button class="testBTNClass" disabled="true" id="myTopButtonId" type="button" onclick="myFunction()">Offline</button>
 <!--<input type="checkbox" id="myCheck" onmouseover="myFunction()" onclick="">-->
 </form>
 	
@@ -148,57 +148,30 @@ function myFunction() {
 </script>		
 	
 		
-    <script>
+<script>
 	    
+//Provide browser support for MutationObserver	    
 var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
-  //var list = document.querySelector('ol'); 
-  var observer = new MutationObserver(function(mutations) {
-	  
+var observer = new MutationObserver(function(mutations) {
+    //Detect when the chat button text changes from the OFFLINE Message to the ONLINE Message	
     mutations.forEach(function(mutation) {
-	    //console.log('test2.0');
-	    //console.log(mutation.type);
-	    //console.log(mutation);
-      if (mutation.type === 'childList' && mutation.addedNodes.length && mutation.addedNodes[0].nodeValue != null) {
-	      //console.log('size: ' + mutation.addedNodes.length);
-	      //console.log(mutation);
-	      //console.log(mutation.addedNodes[0].nodeType);
-	      if(mutation.target.innerHTML == 'Chat Now' && mutation.target.nodeName === "SPAN"){
-	        //if(mutation.removedNodes[0].nodeValue === 'Offline' && mutation.addedNodes[0].nodeValue === 'Chat Now'){
-		  if(mutation.addedNodes[0].nodeValue === 'Chat Now'){
-		      console.log(mutation);
-		      console.log(mutation.target.nodeName);	  
-		      //console.log('test');
-		      //console.log('removedNodes Value: ' + mutation.removedNodes[0].nodeValue);
-		      console.log('addedNodes Value: ' + mutation.addedNodes[0].nodeValue);
-		      document.getElementById('myCheck').innerHTML = mutation.addedNodes[0].nodeValue;
-		      document.getElementById('myCheck').disabled = false;	
-		      observer.disconnect();
-	      }
-      }  
-       // var list_values = [].slice.call(list.children)
-           // .map( function(node) { return node.innerHTML; })
-            //.filter( function(s) {
-             // if (s === '<br />') {
-                //return false;
-             // }
-             // else {
-                //return true;
-              //}
-        //});
-        //console.log(list_values);
-      }else if(mutation.type === 'characterData'){
-	      //console.log(mutation);
-	       
-      }
+        //Replace the "Chat Now" value with the button ONLINE Message that was configured	    
+        if (mutation.type === 'childList' && mutation.target.nodeName === "SPAN" && mutation.addedNodes[0].nodeValue === 'Chat Now' ) {
+            //Change the text on the button at the top and enable it so it is clickable	
+	    //Replace the "myTopButtonId" with the top button Id	
+            document.getElementById('myTopButtonId').innerHTML = mutation.addedNodes[0].nodeValue;
+            document.getElementById('myTopButtonId').disabled = false;	
+	    //Stop observing for the change if already detected	
+            observer.disconnect();
+        }
     });
-  });
- 
-  observer.observe(document, {
-  	attributes: true,
-  	childList: true,
-  	characterData: true,
-	subtree: true  
-   });	    
+});
+
+//Start the observer
+observer.observe(document, {
+    childList: true
+});	 
+    
 	    
 	    
 	    
@@ -277,7 +250,7 @@ childList: true
 	    }
 	    
 	    */
-    </script>	
+</script>	
 	
 	
 	
