@@ -169,7 +169,7 @@ var observer = new MutationObserver(function(mutations) {
 	    //Replace the "myTopButtonId" with the top button Id
 	    console.log(mutation);		  
 	    document.getElementById('myTopButtonId').innerHTML = mutation.target.innerHTML;
-            document.getElementById('myTopButtonId').disabled = false;		  	  
+            document.getElementById('myTopButtonId').disabled = true;		  	  
         }
     });
 });
