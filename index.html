@@ -158,7 +158,8 @@ var observer = new MutationObserver(function(mutations) {
         //Replace the "Chat Now" value with the button ONLINE Message that was configured	    
         if (mutation.type === 'childList' && mutation.target.nodeName === "SPAN" && mutation.addedNodes[0].nodeValue === 'Chat Now' ) {
             //Change the text on the button at the top and enable it so it is clickable	
-	    //Replace the "myTopButtonId" with the top button Id	
+	    //Replace the "myTopButtonId" with the top button Id
+	    console.log(mutation);	
             document.getElementById('myTopButtonId').innerHTML = mutation.addedNodes[0].nodeValue;
             document.getElementById('myTopButtonId').disabled = false;	
 	    //Stop observing for the change if already detected	
