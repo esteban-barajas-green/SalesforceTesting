@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <h2>Testing 300.0</h2>
+    <h2>Testing 301.0</h2>
 		
 <style type='text/css'>
 	.embeddedServiceHelpButton .helpButton .uiButton {
@@ -156,7 +156,7 @@ var observer = new MutationObserver(function(mutations) {
     //Detect when the chat button text changes from the OFFLINE Message to the ONLINE Message	
     mutations.forEach(function(mutation) {
         //Replace the "Chat Now" value with the button ONLINE Message that was configured	    
-        if (mutation.type === 'childList' && mutation.target.nodeName === "SPAN" && mutation.target.innerHTML == 'Chat Now') {
+        if (mutation.type === 'childList' && mutation.target.nodeName === 'SPAN' && mutation.target.className === 'message' && mutation.target.innerHTML == 'Chat Now') {
             //Change the text on the button at the top and enable it so it is clickable	
 	    //Replace the "myTopButtonId" with the top button Id
 	    console.log(mutation);	
