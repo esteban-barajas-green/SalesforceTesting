@@ -186,7 +186,8 @@ var observer = new MutationObserver(function(mutations) {
             document.getElementById('myTopButtonId').disabled = false;	
 		
 	    document.getElementById('chattext').innerHTML = mutation.target.innerHTML;
-	    document.getElementById('liveagentbutton').classList.add("disableLiveChatButton"); 
+	    document.getElementById('liveagentbutton').classList.remove("disableLiveChatButton");
+	    
 	    //Stop observing for the change if already detected	
             //observer.disconnect();
         } else if(mutation.type === 'childList' && mutation.target.nodeName === 'SPAN' && mutation.target.className === 'message' && mutation.target.innerHTML == 'Offline'){
@@ -197,7 +198,7 @@ var observer = new MutationObserver(function(mutations) {
             document.getElementById('myTopButtonId').disabled = true;	
 		
 	    document.getElementById('chattext').innerHTML = mutation.target.innerHTML;
-	    document.getElementById('liveagentbutton').classList.remove("disableLiveChatButton"); 	
+	    document.getElementById('liveagentbutton').classList.add("disableLiveChatButton"); 
         }
     });
 });
