@@ -176,7 +176,8 @@ var MutationObserver = window.MutationObserver || window.WebKitMutationObserver 
 var observer = new MutationObserver(function(mutations) {
     //Detect when the chat button text changes from the OFFLINE Message to the ONLINE Message	
     mutations.forEach(function(mutation) {
-        //Replace the "Chat Now" value with the button ONLINE Message that was configured	    
+        //Replace the "Chat Now" value with the button ONLINE Message that was configured
+	    console.log("Hello World1");
         if (mutation.type === 'childList' && mutation.target.nodeName === 'SPAN' && mutation.target.className === 'message' && mutation.target.innerHTML == 'Chat Now') {
             //Change the text on the button at the top and enable it so it is clickable	
 	    //Replace the "myTopButtonId" with the top button Id
@@ -192,6 +193,7 @@ var observer = new MutationObserver(function(mutations) {
         } else if(mutation.type === 'childList' && mutation.target.nodeName === 'SPAN' && mutation.target.className === 'message' && mutation.target.innerHTML == 'Offline'){
             //Change the text on the button at the top and disable it so it can't be clicked
 	    //Replace the "myTopButtonId" with the top button Id
+	    console.log("Hello World2");	
 	    console.log(mutation);		  
 	    document.getElementById('myTopButtonId').innerHTML = mutation.target.innerHTML;
             document.getElementById('myTopButtonId').disabled = true;	
