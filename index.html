@@ -153,7 +153,8 @@ function myFunction() {
 <script>
 function openChatButton() {
   var chatButtonElement = document.getElementsByClassName("helpButtonEnabled");
-  if(chatButtonElement){
+  if( typeof chatButtonElement !== 'undefined' ){
+	console.log(typeof chatButtonElement);  
 	chatButtonElement[0].click();
   }
 }
