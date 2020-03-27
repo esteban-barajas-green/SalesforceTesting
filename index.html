@@ -26,6 +26,9 @@
 	.testBTNClass {
 		background-color: #005290;
 	}
+	.disableLiveChatButton {
+   		pointer-events:none;
+	}
 </style>
 
 <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
@@ -177,6 +180,9 @@ var observer = new MutationObserver(function(mutations) {
 	    console.log(mutation);	
             document.getElementById('myTopButtonId').innerHTML = mutation.target.innerHTML;
             document.getElementById('myTopButtonId').disabled = false;	
+		
+	    document.getElementById('chattext').innerHTML = mutation.target.innerHTML;
+	    document.getElementById('liveagentbutton').classList.add("disableLiveChatButton"); 
 	    //Stop observing for the change if already detected	
             //observer.disconnect();
         } else if(mutation.type === 'childList' && mutation.target.nodeName === 'SPAN' && mutation.target.className === 'message' && mutation.target.innerHTML == 'Offline'){
@@ -184,7 +190,10 @@ var observer = new MutationObserver(function(mutations) {
 	    //Replace the "myTopButtonId" with the top button Id
 	    console.log(mutation);		  
 	    document.getElementById('myTopButtonId').innerHTML = mutation.target.innerHTML;
-            document.getElementById('myTopButtonId').disabled = true;		  	  
+            document.getElementById('myTopButtonId').disabled = true;	
+		
+	    document.getElementById('chattext').innerHTML = mutation.target.innerHTML;
+	    document.getElementById('liveagentbutton').classList.remove("disableLiveChatButton"); 	
         }
     });
 });
