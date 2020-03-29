@@ -182,6 +182,7 @@ var observer = new MutationObserver(function(mutations) {
         if (mutation.type === 'childList' && mutation.target.nodeName === 'SPAN' && mutation.target.className === 'message' && mutation.target.innerHTML == 'Chat Now') {
             //Change the text on the button at the top and enable it so it is clickable	
 	    //Replace the "myTopButtonId" with the top button Id
+	    console.log("We're Online.");
 	    console.log(mutation);	
             document.getElementById('myTopButtonId').innerHTML = mutation.target.innerHTML;
             document.getElementById('myTopButtonId').disabled = false;	
@@ -194,7 +195,7 @@ var observer = new MutationObserver(function(mutations) {
         } else if(mutation.type === 'childList' && mutation.target.nodeName === 'SPAN' && mutation.target.className === 'message' && mutation.target.innerHTML == 'Offline'){
             //Change the text on the button at the top and disable it so it can't be clicked
 	    //Replace the "myTopButtonId" with the top button Id
-	    console.log("Hello World2");	
+	    console.log("We're Offline");	
 	    console.log(mutation);		  
 	    document.getElementById('myTopButtonId').innerHTML = mutation.target.innerHTML;
             document.getElementById('myTopButtonId').disabled = true;	
