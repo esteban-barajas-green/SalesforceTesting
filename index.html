@@ -179,7 +179,7 @@ var observer = new MutationObserver(function(mutations) {
         //Replace the "Chat Now" value with the button ONLINE Message that was configured
 	    //console.log(mutation.target.nodeName);
 	    //console.log(mutation);
-        if (mutation.type === 'childList' && mutation.target.nodeName === 'SPAN' && mutation.target.className === 'message' && mutation.target.innerHTML == 'Chat Now') {
+        if (mutation.type == 'childList' && mutation.target.nodeName == 'SPAN' && mutation.target.className == 'message' && mutation.target.innerHTML == 'Chat Now') {
             //Change the text on the button at the top and enable it so it is clickable	
 	    //Replace the "myTopButtonId" with the top button Id
 	    console.log("We're Online");
@@ -193,7 +193,7 @@ var observer = new MutationObserver(function(mutations) {
 	    
 	    //Stop observing for the change if already detected	
             //observer.disconnect();
-        } else if(mutation.type === 'childList' && mutation.target.nodeName === 'SPAN' && mutation.target.className === 'message' && mutation.target.innerHTML == 'Offline'){
+        } else if(mutation.type == 'childList' && mutation.target.nodeName == 'SPAN' && mutation.target.className == 'message' && mutation.target.innerHTML == 'Offline'){
             //Change the text on the button at the top and disable it so it can't be clicked
 	    //Replace the "myTopButtonId" with the top button Id
 	    console.log("We're Offline");
