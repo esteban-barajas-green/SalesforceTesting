@@ -190,7 +190,7 @@ function openChatButton() {
 </script>
 	
 <script>
-	
+/*	
 function checkBrowser() {
 	
 	let IExplorerAgent = window.navigator.userAgent.match(/(MSIE|Trident)/);
@@ -206,12 +206,12 @@ function checkBrowser() {
 	    document.getElementById('liveagentbutton').classList.remove("disableLiveChatButton");
 	    
 	    }
-	
+	*/
 	
 }
 	
 	
-	window.onload = checkBrowser();
+	//window.onload = checkBrowser();
 	//window.addEventListener('DOMContentLoaded', (event) => {
 		  //let userAgentString = navigator.userAgent; 
 		//console.log("LOADED...");
@@ -233,6 +233,9 @@ function checkBrowser() {
 	
 		
 <script>
+	
+let IExplorerAgent = window.navigator.userAgent.match(/(MSIE|Trident)/);
+if(!IExplorerAgent) {	
 	    
 //Provide browser support for MutationObserver	    
 var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
@@ -289,7 +292,16 @@ observer.observe(document, {
     subtree: true  	
 });	 
     
-	    
+} else{
+
+console.log("User is using IE");
+document.getElementById('myTopButtonId').innerHTML = 'Default Chat Text';
+document.getElementById('myTopButtonId').disabled = false;	
+
+document.getElementById('chattext').innerHTML = 'Default Chat Text';
+document.getElementById('liveagentbutton').classList.remove("disableLiveChatButton");
+
+}	    
 	    
 	    
 	    
