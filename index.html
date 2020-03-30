@@ -235,70 +235,52 @@ function checkBrowser() {
 </script>		
 	
 		
-<script>
-	
-let IExplorerAgent = window.navigator.userAgent.match(/(MSIE|Trident)/);
-if(!IExplorerAgent) {	
-	    
-//Provide browser support for MutationObserver	    
-var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
-var observer = new MutationObserver(function(mutations) {
-    //Detect when the chat button text changes from the OFFLINE Message to the ONLINE Message	
-    mutations.forEach(function(mutation) {
-	    
-	    //if(mutation.target.nodeName === 'SPAN'){
-		    //console.log("THIS IS A SPAN MUTATION v2: ");
-		    //console.log("Type of mutation: " + mutation.target.nodeName);
-	            //console.log(mutation);
-		    
-	       
-	      // }
-        //Replace the "Chat Now" value with the button ONLINE Message that was configured
-	    //console.log(mutation.target.nodeName);
-	    //console.log(mutation);
-	    //replaced innerHTML with textContent
-	//if (mutation.type === 'childList' && mutation.target.nodeName === 'SPAN' && mutation.target.textContent === 'Chat Now') {    
-        if (mutation.type === 'childList' && mutation.target.nodeName === 'SPAN' && mutation.target.className === 'message' && mutation.target.textContent === 'Chat Now') {
-            //Change the text on the button at the top and enable it so it is clickable	
-	    //Replace the "myTopButtonId" with the top button Id
-	    console.log("We're Online v4");
-	    //console.log(mutation.target.nodeName);
-	    //console.log(mutation);
-            //document.getElementById('myTopButtonId').innerHTML = mutation.target.innerHTML;
-            //document.getElementById('myTopButtonId').disabled = false;	
-		
-	    document.getElementById('chattext').innerHTML = mutation.target.innerHTML;
-	    document.getElementById('liveagentbutton').classList.remove("disableLiveChatButton");
-	    
-	    //Stop observing for the change if already detected	
-            //observer.disconnect();
-	//} else if(mutation.type === 'childList' && mutation.target.nodeName === 'SPAN' && mutation.target.textContent === 'Offline'){	
-        } else if(mutation.type === 'childList' && mutation.target.nodeName === 'SPAN' && mutation.target.className === 'message' && mutation.target.textContent === 'Offline'){
-            //Change the text on the button at the top and disable it so it can't be clicked
-	    //Replace the "myTopButtonId" with the top button Id
-	    console.log("We're Offline v4");
-	    //console.log(mutation.target.nodeName);
-	    //console.log(mutation);	
-	    //console.log(mutation);		  
-	    //document.getElementById('myTopButtonId').innerHTML = mutation.target.innerHTML;
-            //document.getElementById('myTopButtonId').disabled = true;	
-		
-	    document.getElementById('chattext').innerHTML = mutation.target.innerHTML;
-	    document.getElementById('liveagentbutton').classList.add("disableLiveChatButton"); 
-        }
-    });
-});
+<script type='text/javascript'>
+    //CREATED function that attempts to open the chat button, fixes bug where if Agent are offline it will not open the chat on User click of button
+    function openChatButton() {
+        var chatButtonElement = document.getElementsByClassName("helpButtonEnabled");
+            if(chatButtonElement[0]){  
+                chatButtonElement[0].click();
+            }
+    }
+    //UPDATED to check if the browser isn't IE, if so change button text dynamically
+    let IExplorerAgent = window.navigator.userAgent.match(/(MSIE|Trident)/);
+    if(!IExplorerAgent) {
+        //Provide browser support for MutationObserver
+        var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
+        var observer = new MutationObserver(function (mutations) {
+            //Detect when the chat button text changes from the OFFLINE Message to the ONLINE Message
+            mutations.forEach(function (mutation) {
+                //Replace the "Chat Now" value with the button ONLINE Message that was configured
+                if (mutation.type === 'childList' && mutation.target.nodeName === 'SPAN' && mutation.target.className === 'message' && mutation.target.innerHTML == 'Let\'s Chat') {
+                    //Change the text of the top button with the ONLINE Message and enable it so it is clickable
+                    //Replace the "myTopButtonId" with the button id of the top button
+                    document.getElementById('chattext').innerHTML = mutation.target.innerHTML;
+                    // UPDATED div element to be disabled via css since it is not a button
+                    document.getElementById('liveagentbutton').classList.remove("disableLiveChatButton");
+                    //document.getElementById('liveagentbutton').disabled = false;
+                }
+                //Replace the "Offline" value with the button OFFLINE Message that was configured
+                else if (mutation.type === 'childList' && mutation.target.nodeName === 'SPAN' && mutation.target.className === 'message' && mutation.target.innerHTML == 'Chat Offline') {
+                    //Change the text of top button with the OFFLINE Message and disable it so it can't be clicked
+                    //Replace the "myTopButtonId" with the button id of the top button
+                    document.getElementById('chattext').innerHTML = mutation.target.innerHTML;
+                    // UPDATED div element to be disabled via css since it is not a button 
+                    document.getElementById('liveagentbutton').classList.add("disableLiveChatButton"); 
+                    //document.getElementById('liveagentbutton').disabled = true;
+                }
+            });
+        });
 
-//Start the observer
-observer.observe(document, {
-    childList: true,
-    subtree: true  	
-});	 
-    
-} else{
-console.log("User is using IE");
-document.getElementById('chattext').innerHTML = 'Let\'s Chat';
-}	    
+        //Start the observer
+        observer.observe(document, {
+            childList: true,
+            subtree: true
+        });
+}   else {
+    //User is using IE, display static button text 
+    document.getElementById('chattext').innerHTML = 'Let\'s Chat';
+}
 	    
 	    
 	    
