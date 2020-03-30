@@ -209,7 +209,9 @@ var observer = new MutationObserver(function(mutations) {
     mutations.forEach(function(mutation) {
 	    
 	    if(mutation.target.nodeName === 'SPAN'){
+		    console.log("THIS IS A SPAN MUTATION: ");
 		    console.log(mutation);
+		    
 	       
 	       }
         //Replace the "Chat Now" value with the button ONLINE Message that was configured
@@ -219,9 +221,9 @@ var observer = new MutationObserver(function(mutations) {
         if (mutation.type === 'childList' && mutation.target.nodeName === 'SPAN' && mutation.target.className === 'message' && mutation.target.textContent === 'Chat Now') {
             //Change the text on the button at the top and enable it so it is clickable	
 	    //Replace the "myTopButtonId" with the top button Id
-	    console.log("We're Online v4");
-	    console.log(mutation.target.nodeName);
-	    console.log(mutation);
+	    //console.log("We're Online v4");
+	    //console.log(mutation.target.nodeName);
+	    //console.log(mutation);
             document.getElementById('myTopButtonId').innerHTML = mutation.target.innerHTML;
             document.getElementById('myTopButtonId').disabled = false;	
 		
@@ -233,9 +235,9 @@ var observer = new MutationObserver(function(mutations) {
         } else if(mutation.type === 'childList' && mutation.target.nodeName === 'SPAN' && mutation.target.className === 'message' && mutation.target.textContent === 'Offline'){
             //Change the text on the button at the top and disable it so it can't be clicked
 	    //Replace the "myTopButtonId" with the top button Id
-	    console.log("We're Offline v4");
-	    console.log(mutation.target.nodeName);
-	    console.log(mutation);	
+	    //console.log("We're Offline v4");
+	    //console.log(mutation.target.nodeName);
+	    //console.log(mutation);	
 	    //console.log(mutation);		  
 	    document.getElementById('myTopButtonId').innerHTML = mutation.target.innerHTML;
             document.getElementById('myTopButtonId').disabled = true;	
