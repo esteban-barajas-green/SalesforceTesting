@@ -193,12 +193,14 @@ function openChatButton() {
 	
 	
 	window.addEventListener('DOMContentLoaded', (event) => {
-		  let userAgentString = navigator.userAgent; 
+		  //let userAgentString = navigator.userAgent; 
+		console.log("LOADED...");
 		
 let IExplorerAgent = window.navigator.userAgent.match(/(MSIE|Trident)/);
 	if (IExplorerAgent) {
 		//console.log("User is using IE? " + IExplorerAgent);
 		alert("User is using IE");
+		console.log("IE USER.");
 	    
 	    }
 });
@@ -232,8 +234,8 @@ var observer = new MutationObserver(function(mutations) {
 	    
 	    //if(mutation.target.nodeName === 'SPAN'){
 		    //console.log("THIS IS A SPAN MUTATION v2: ");
-		    console.log("Type of mutation: " + mutation.target.nodeName);
-	            console.log(mutation);
+		    //console.log("Type of mutation: " + mutation.target.nodeName);
+	            //console.log(mutation);
 		    
 	       
 	      // }
