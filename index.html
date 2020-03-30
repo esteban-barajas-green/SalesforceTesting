@@ -191,25 +191,27 @@ function openChatButton() {
 	
 <script>
 	
+function checkBrowser() {
 	
-	window.addEventListener('DOMContentLoaded', (event) => {
-		  //let userAgentString = navigator.userAgent; 
-		console.log("LOADED...");
-		
-let IExplorerAgent = window.navigator.userAgent.match(/(MSIE|Trident)/);
+	let IExplorerAgent = window.navigator.userAgent.match(/(MSIE|Trident)/);
 	if (IExplorerAgent) {
 		//console.log("User is using IE? " + IExplorerAgent);
 		alert("User is using IE");
 		console.log("IE USER.");
 	    
 	    }
-});
 	
 	
+}
 	
+	
+	window.onload = checkBrowser();
+	//window.addEventListener('DOMContentLoaded', (event) => {
+		  //let userAgentString = navigator.userAgent; 
+		//console.log("LOADED...");
+		
 
-
-	
+//});
 	
 </script>	
 	
