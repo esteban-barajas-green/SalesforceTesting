@@ -193,6 +193,8 @@ function openChatButton() {
 	
 	
 	window.addEventListener('DOMContentLoaded', (event) => {
+		  let userAgentString = navigator.userAgent; 
+		
     	// Detect Internet Explorer 
 let IExplorerAgent = userAgentString.indexOf("MSIE") > -1 || userAgentString.indexOf("rv:") > -1; 
 	if (IExplorerAgent) {
