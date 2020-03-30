@@ -196,8 +196,14 @@ function checkBrowser() {
 	let IExplorerAgent = window.navigator.userAgent.match(/(MSIE|Trident)/);
 	if (IExplorerAgent) {
 		//console.log("User is using IE? " + IExplorerAgent);
-		alert("User is using IE");
-		console.log("IE USER.");
+		//alert("User is using IE");
+		//console.log("IE USER.");
+		
+	    document.getElementById('myTopButtonId').innerHTML = 'Default Chat Text';
+            document.getElementById('myTopButtonId').disabled = false;	
+		
+	    document.getElementById('chattext').innerHTML = 'Default Chat Text';
+	    document.getElementById('liveagentbutton').classList.remove("disableLiveChatButton");
 	    
 	    }
 	
